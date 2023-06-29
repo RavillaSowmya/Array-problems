@@ -1,0 +1,17 @@
+print ('Hello World')
+def majorityElement(nums):
+        nums.sort()
+        c=0
+        max=0
+        for i in range(len(nums)):
+            for j in range(0,len(nums)):
+                s=0
+                if nums[i]==nums[j]:
+                    c=c+1
+                    if c>max:
+                        max=c
+                else:
+                    c=0
+        return max
+nums=[6,6,6,7,7]
+print(majorityElement(nums))
