@@ -1,0 +1,33 @@
+#555 Coder
+#Step1:subtract each digit with 5 and create new array
+def subtraction5(arr,n):
+    for i in range(n):
+        num=arr[i]
+        temp=0
+        while(num!=0):
+            rem=num%10
+            temp=temp*10+abs(rem-5)
+            num=num//10
+        arr[i]=temp
+    digitalsum(arr,n)
+    #step3 find sum for all elements in single digit array
+    sum1=0
+    for i in range(len(arr)):
+        sum1=sum1+arr[i]
+    return sum1
+#step2:find digital sum for each element in new array and create single digit array
+def digitalsum(arr,n):
+    for i in range(n):
+        num=arr[i]
+        sum = 0
+        while(num>0 or sum>9):
+            if(num == 0):
+                num= sum
+                sum = 0
+            sum += num% 10
+            num//= 10
+        arr[i]=sum
+    return arr
+arr=[123,145,167]
+n=len(arr)
+print(subtraction5(arr,n))
